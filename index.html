@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Un mensajito para ti ❤️</title>
+
+  <!-- Meta para vista previa en WhatsApp -->
+  <meta property="og:title" content="💌 Para la niña más hermosa" />
+  <meta property="og:description" content="Toca el enlace y mira este detalle con corazones ❤️" />
+  <meta property="og:image" content="https://AlbertoJoseVQ.github.io/sorpresa/imagen_gato_flores.jpg" />
+  <meta property="og:url" content="https://AlbertoJoseVQ.github.io/sorpresa/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html,body{height:100%;margin:0;padding:0}
+    body{
+      background-color:#fff9c4; /* Amarillo claro */
+      display:grid;
+      place-items:center;
+      font-family:sans-serif;
+      overflow:hidden;
+    }
+    .card{
+      text-align:center;
+      padding:25px;
+      max-width:500px;
+      background:rgba(255,255,255,0.8);
+      border-radius:20px;
+      box-shadow:0 6px 20px rgba(0,0,0,.2);
+      animation: float 4s ease-in-out infinite;
+    }
+    .card img{ width:100%; border-radius:16px; }
+    h1{ margin:16px 0 6px; font-size:clamp(22px,3.5vw,34px); color:#b71c1c }
+    p{ opacity:.9; line-height:1.5; margin:0 0 10px; color:#5d4037 }
+    .btn{
+      display:inline-block;
+      margin-top:12px;
+      padding:10px 16px;
+      border-radius:999px;
+      background:linear-gradient(90deg,#ef5350,#d32f2f);
+      color:white;
+      text-decoration:none;
+      font-weight:600
+    }
+    @keyframes float{
+      0%,100%{ transform:translateY(0)}
+      50%{ transform:translateY(-6px)}
+    }
+    /* Corazones cayendo */
+    .heart{
+      position:fixed;
+      top:-20px;
+      font-size:24px;
+      color:#e53935;
+      animation: fall linear forwards;
+      pointer-events:none;
+    }
+    @keyframes fall{
+      to{ transform:translateY(110vh) rotate(360deg); opacity:0.8 }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="imagen_gato_flores.jpg" alt="Gatito con girasol" />
+    <h1>¡Con mucho cariño! ❤️</h1>
+    <p>Te mando este detalle para alegrarte el día. 🌻</p>
+    <a class="btn" href="https://wa.me/?text=¡Gracias! Me encantó 😍">Responder por WhatsApp</a>
+  </div>
+
+  <script>
+    function crearCorazon(){
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random()*100 + 'vw';
+      heart.style.animationDuration = (3+Math.random()*2) + 's';
+      document.body.appendChild(heart);
+      setTimeout(()=>heart.remove(),5000);
+    }
+    setInterval(crearCorazon,300); // crea uno cada 0.3s
+  </script>
+</body>
+</html>
